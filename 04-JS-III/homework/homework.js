@@ -1,7 +1,5 @@
 // No cambies los nombres de las funciones.
-
-const { push } = require("foo/src/tasks");
-
+//const { push } = require("foo/src/tasks");
 // [45,15,25,8,10] = 5 
 //   0, 1, 2, 3, 4 
 function devolverPrimerElemento(array) {
@@ -148,19 +146,25 @@ function multiplicarArgumentos() {
  // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
  // (!) Signo corrobora si no exite arguments o esta vacio  
- //if (Object.keys(arguments).length ===0){ anohter way to resolve this exercise 
- if(arguments.length < 1){
+ //if (Object.keys(arguments).length ===0){ anohter way to resolve this exercise  *******
+ /*if(arguments.length < 1){
  return 0;
   }
  let producto = 1
  for ( var i = 0; arguments.length; i++){
   producto=producto * arguments[i]
  } 
+ return producto;*/
+let producto = 1;
+
+ if(arguments.length < 1){
+  return 0;
+ } for ( var i = 0 ; i < arguments.length; i++){
+  producto = producto * arguments[i];
+ }
  return producto;
- // console.log(arguments)
 }
- //multiplicarArgumentos()
-  //multiplicarArgumentos(1,2,5)
+
 
 
 function cuentoElementos(arreglo){
@@ -186,7 +190,7 @@ function diaDeLaSemana(numeroDeDia) {
  if( numeroDeDia === 1 || numeroDeDia ===7){
   return 'Es fin de semana';
  }
- return 'Es dia Labora';
+ return 'Es dia Laboral';
 } 
 
 
@@ -236,7 +240,7 @@ function mesesDelAño(array) {
 var nuevoArray = []
 
 for ( let i= 0; i < array.length; i ++){
-  if(array[i] === "Enero" || "Marzo" || "Noviembre"){
+  if(array[i] === "Enero" || array [i] === "Marzo" || array [i] === "Noviembre"){
     nuevoArray.push(array[i])
   }
 }
@@ -299,7 +303,7 @@ function continueStatement(numero) {
     suma = suma + 2
     nuevoArray.push(suma)
   }
-
+  return nuevoArray;
 }
 
 
