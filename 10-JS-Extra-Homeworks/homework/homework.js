@@ -10,6 +10,12 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+
+  let arreglo = [];
+  for (let x in objeto){
+    arreglo.push([x,objeto[x]])
+  }
+  return arreglo;
 }
 
 
@@ -18,6 +24,15 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+
+  let obj = {}
+  for ( let i = 0;  i < string.length; i++){
+    if(Object.keys(obj).includes(string[i])){// Object.Keys retorna un arreglo con los NOMBRES de las propiedades dentro de un arrgelo 
+     obj[string[i]] += 1                   // += expresa y hace una suma al numero anterior
+    }
+    else obj [string[i]] = 1
+  }
+  return obj;
 }
 
 
@@ -26,6 +41,16 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+
+  let mayusculas = ''
+  let minisculas = ''
+  for( let i = 0 ; i <s.length; i ++){
+    if (s[i].toUpperCase() === s[i]){ // Se corrobora si es Mayuscula o Miniscula y ya entra a la condicion
+      mayusculas = mayusculas + s[i]
+    }
+    else minisculas = minisculas + s[i]; // Else se puede usar en la misma linea de codigo que if si es en una sentancia
+  }
+  return mayusculas + minisculas;
 }
 
 
@@ -35,21 +60,50 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+
+  var phrase = str.split (" ").map(function(element){
+    return element.split("").reverse().join("");
+  }).join (" ");
+  return phrase;
 } 
 
 
 function capicua(numero){
   //Escribe una función, la cual recibe un número y determina si es o no capicúa.
-  //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
+  //La misma debe retornar: "Es capicua" si el número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+
+  var string = numero.toString();
+  var stringInvertida = "";
+
+  stringInvertida = string.split("").reverse().join("");
+  if( string !== stringInvertida){ // != = El tiene ligaduras y por eso se ve junto 
+    return "No es capicua";
+  }
+  return "Es capicua";
 }
+
+//console.log(capicua(12321));
+
 
 
 function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+
+  var cadena2 = "";
+
+  //abcefh --> Bucle for, while, dowhile 
+  //a = "a" eliminarla
+  // e !== "a" || "b"|| "c" No eliminala (!== NO ES IGUAL)
+
+  for( let i = 0 ; i < cadena.length; i ++){
+    if (cadena [i] !== "a" && cadena [i]!== "b" && cadena [i]!== "c")
+    cadena2 += cadena [i];
+  }
+  return cadena2;
 }
 
 
@@ -57,6 +111,19 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+
+  // Ciclo For BURBUJA da toda la vuelta y compara 
+
+  for( let i = 0; i < arr.length; i++){
+    for(let j = i +1; j < arr.length ; j++){
+      if(arr[j].length < arr [i].length){
+        var aux = arr [j];   
+        arr [j] = arr [i];
+        arr [i] = aux ; 
+      }
+    }
+  }
+  return arr;
 }
 
 
@@ -66,6 +133,17 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
+
+  // Ciclo for BURBUJA compara y da la vuelta entre los elementos ----- Existen otro metodos como filter or others
+  var nuevoArr = []
+  for ( let i = 0; i < arreglo1.length; i ++){
+  for ( let j = 0 ; j < arreglo2.length; j++){
+    if ( arreglo1 [i] === arreglo2 [j]){
+      nuevoArr.push(arreglo1[i]);
+    }
+  }
+  }
+  return nuevoArr;
 }
 
 
